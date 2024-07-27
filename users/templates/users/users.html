@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mx-auto p-2" style="margin-left:50px;">
+  <div class="col align-self-center ">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="text-light">{{title}}</h4>
+        </a>
+      </div>
+      <div class="card-body">
+        <table class="table" id="test">
+            <thead>
+                <tr>
+                  <th scope="col">Nombres y Apellidos</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Correo</th>
+                  {% if request.user.is_superuser%}
+                    <th scope="col">Editar</th>
+                    <th scope="col">eliminar</th>
+                  {% endif %}
+                </tr>
+              </thead>
+              <tbody>
+                  {% for aca in users %}
+                      <tr>
+                          <td>{{aca.first_name}} {{aca.last_name}}</td>
+                          <td>{{aca.username}}</td>
+                          <td>{{aca.email}}</td>
+                          {% if request.user.is_superuser %}
+                            <td>
+                              <a class="btn btn-info text-center" onclick="OpenModalEdit('{% url 'edit_user' pk=aca.id %}')" title='Edit User'>
+                                <i class="fas fa-pen"></i>
+                              </a>
+                            </td>
+                            <td>
+                              <a class="btn btn-danger text-center" onclick="OpenModalDelete('{% url 'delete_user' pk=aca.id %}')" title='Delete User'>
+                                <i class="fas fa-trash-alt"></i>
+                              </a>
+                            </td>
+                          {% endif %}
+                      </tr>
+                  {% endfor %}
+              </tbody>
+        </table>
+      </div>
+    </div>  
+  </div> 
+</div>
+
+<div class="modal fade" id="addModal"  aria-hidden="true">
+</div>
+
+<div class="modal fade" id="editModal"  aria-hidden="true">
+</div>
+
+<div class="modal fade" id="deleteModal"  aria-hidden="true">
+</div>
+
+
+
+
+{% endblock content %}

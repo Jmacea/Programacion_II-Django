@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% comment %} Bootstrap 5 {% endcomment %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  {% comment %} Font'awesome {% endcomment %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {% comment %} DataTables CSS {% endcomment %}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+  {% comment %} Styles CSS {% endcomment %}
+  <!-- Font Awesome -->
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+  />
+  <!-- MDB -->
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+  rel="stylesheet"
+  />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container-flex">
+    <div class="filter">
+      <nav class="nav1">
+        <img src="{% static 'img/logo.png' %}" alt="">
+        <ul class="nav float-end">
+            <li class="nav-item ">
+              <a class="nav-link active" aria-current="page" href="{% url 'login_user' %}">Login</a>
+            </li>
+        </ul>
+      </nav>
+      <form action="{% url 'register' %}" method="POST" id="registro" enctype="multipart/form-data">
+        {% csrf_token %}
+        <section class="vh-70">
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.9);">
+                  <div class="card-body p-5">
+                    <div class="d-flex justify-content-center">
+                      <img class="mb-6" src="{% static 'img/logo.png' %}">
+                    </div>
+                    <div id="errores">         
+                    </div>
+                    <div class="form-outline mb-4">
+                      {{ form.username }}
+                      <label class="form-label" for="username">Usuario</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      {{ form.first_name }}
+                      <label class="form-label" for="irst_name">Nombres</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      {{ form.last_name }}
+                      <label class="form-label" for="last_name">Apellidos</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      {{ form.email }}
+                      <label class="form-label" for="email">Correo</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      {{ form.password1 }}
+                      <label class="form-label" for="password1">Contraseña</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      {{ form.password2 }}
+                      <label class="form-label" for="password2">Repetir Contraseña</label>
+                    </div>
+                    <div class="mb-4">
+                      {{ form.photo }}
+                      <label class="form-label mt-1 text-info-emphasis" for="photo">Adjuntar Foto clara y legible</label>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
+                    <hr class="my-4">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </form>
+    </div>
+  </div>
+ 
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
+    ></script>
+    {% comment %} Jquery {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    {% comment %} Bootstrap 5 JS {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/registro.js' %}"></script>
+
+  </body>
+</html>

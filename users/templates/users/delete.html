@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addModalLabel">
+            {% block modal-title %} <i class="fa-sharp fa-regular fa-graduation-cap"></i>&nbsp;&nbsp; Eliminar Usuario{% endblock modal-title %}
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form action="{% url 'delete_user' pk=user.id %}" method="POST">
+        {% csrf_token %}
+        <div class="modal-body">            
+            <div class="text-center text-danger"><i class="fas fa-times-circle fa5x mb-4 mt-2"></i></div> 
+            <div class="text-center text-danger">
+                <span>QUIERE ELIMINAR AL USUARIO ?</span>
+            </div>
+        </div> 
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-outline-danger btn-sm">Borrar</button>
+        </div>
+        </div>
+    </form>
+</div>

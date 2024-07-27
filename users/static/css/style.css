@@ -1,0 +1,115 @@
+*  {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../img/ima22.jpeg"); 
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.container-fluid {
+    min-height: 100vh;
+    
+}
+.container {
+    min-height: 100vh;
+    
+}
+
+.card-header{
+    background: #3B71CA;
+}
+
+.filter{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    overflow-y: auto;
+}
+
+#addbtn{
+    height: 60px;
+    width: 70px;
+    text-align: center;
+    font-size: x-large;
+    background: #198754;
+}
+
+
+.nav1 img{
+    width: 180px;
+    height: 80px;
+    margin: 20px;
+}
+
+#point{
+    width: 80px;
+}
+
+.swal-text {
+    text-align: center;
+}
+
+.swal-icon--success:before,
+.swal-icon--success:after,
+.swal-icon--success__jide-corners {
+    background: none !important;
+}
+
+.swal-button {
+    padding: 7px 19px;
+    border-radius: 5px;
+    background-color: #198754;
+    font-size: 12px;
+    border: 1px solid #198754;
+}
+
+.swal-button:focus{
+    box-shadow: none;
+}
+
+.swal-button:not([disable]):hover{
+    background: transparent;
+    color: #111;
+    border: 1px solid #198754;
+}
+
+
+.page-item.active .page-link{
+    columns: #fff;
+    background-color: #3B71CA;
+    border: 1px solid #3B71CA;
+}
+
+.pagination > li > a {
+    background-color: #fff;
+    color: #3B71CA;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > span > a:focus,
+.pagination > span > a:hover {
+    color: black;
+    background-color: antiquewhite;
+    border: 1px solid #3B71CA;
+    box-shadow: none;
+}
+
+/*  DATATABLES */
+
+    /* pagination */
+.dataTables_paginate {
+    margin-top: 10px !important;
+}
+
+    /* Input search */
+.dataTables_filter{
+    display: none;
+}
+
+.dataTables_length {
+    margin-bottom: 10px !important;
+}
